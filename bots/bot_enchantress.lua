@@ -19,40 +19,37 @@ STATE_GOTO_COMFORT_POINT = "STATE_GOTO_COMFORT_POINT";
 -- Bot
 ----------------------------------------------------------------------------------------
 function ThinkLvlupAbility()
-    local npcBot = GetBot();
+    local enchantress = GetBot();
 	--print("Try to LevelUp Ability");
-    npcBot:Action_LevelAbility("enchantress_untouchable");
+    enchantress:Action_LevelAbility("enchantress_untouchable");
 end
 
 
 function Move1()
-	local npcBot = GetBot();
-	npcBot:Action_MoveToLocation(RADIANT_SECRET_SHOP_POS);
+	local enchantress = GetBot();
+	enchantress:Action_MoveToLocation(RADIANT_SECRET_SHOP_POS);
 end
 
 function Move2()
-	local npcBot = GetBot();
-	npcBot:Action_MoveToLocation(RADIANT_BOUNTY_TOP_POS);
+	local enchantress = GetBot();
+	enchantress:Action_MoveToLocation(RADIANT_BOUNTY_TOP_POS);
 end
 
 function Move3()
-	local npcBot = GetBot();
-	npcBot:Action_MoveToLocation(RADIANT_TOP_T1_POS);
+	local enchantress = GetBot();
+	enchantress:Action_MoveToLocation(RADIANT_TOP_T1_POS);
 end
 
 function Think()
-	local npcBot = GetBot();
+	local enchantress = GetBot();
     --print("Sproink");
 	--ThinkLvlupAbility();
 	if DotaTime()<-10 then
-		--npcBot:Action_PickUpRune(RUNE_BOUNTY)
-		npcBot:Action_LevelAbility(1);
 		Move1();
 	elseif DotaTime()<0 then
-		--npcBot:Action_PickUpRune(RUNE_BOUNTY)
 		Move2();
 	elseif DotaTime()>=0 and DotaTime()<=1 then
-		--npcBot:Action_PickUpRune(RUNE_BOUNTY)
+		enchantress:Action_PickUpRune(enchantress);
 	else
 		Move3();
 	end
