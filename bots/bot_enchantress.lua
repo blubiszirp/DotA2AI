@@ -1,10 +1,8 @@
-
+require( GetScriptDirectory().."/locations/locations" )
 ----------------------------------------------------------------------------------------
 -- Locations
 ----------------------------------------------------------------------------------------
 RADIANT_TOP_T1_POS = Vector(-6250.0,2000.0,0.0);
-RADIANT_SECRET_SHOP_POS = Vector(-4720.0,1250.0,0.0);
-RADIANT_BOUNTY_TOP_POS = Vector(-4400.0,200.0,0.0);
 
 ----------------------------------------------------------------------------------------
 -- Game States
@@ -15,8 +13,11 @@ STATE_KILL = "STATE_KILL";
 STATE_RETREAT = "STATE_RETREAT";
 STATE_FARMING = "STATE_FARMING";
 STATE_GOTO_COMFORT_POINT = "STATE_GOTO_COMFORT_POINT";
+
 ----------------------------------------------------------------------------------------
--- Bot
+----------------------------------------------------------------------------------------
+-- Enchantress Radiant Offlane
+----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 function ThinkLvlupAbility()
     local enchantress = GetBot();
@@ -40,10 +41,9 @@ function Move3()
 	enchantress:Action_MoveToLocation(RADIANT_TOP_T1_POS);
 end
 
-function Think()
+
+function RadiantThink()
 	local enchantress = GetBot();
-    --print("Sproink");
-	--ThinkLvlupAbility();
 	if DotaTime()<-10 then
 		Move1();
 	elseif DotaTime()<0 then
@@ -53,5 +53,14 @@ function Think()
 	else
 		Move3();
 	end
-	--print("DotaTime: " .. DotaTime());
+end
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+function Think()
+	if ( GetTeam() == TEAM_RADIANT )
+	then
+		RadiantThink();
+	end
 end
