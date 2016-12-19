@@ -40,7 +40,7 @@ function PreGameRadiantThink()
 end
 
 function RadiantThink()
-	if DotaTime<=1 then
+	if DotaTime()<=1 then
 		PreGameRadiantThink();
 	end
 end
