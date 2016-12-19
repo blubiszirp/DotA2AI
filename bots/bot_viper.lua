@@ -29,9 +29,9 @@ end
 function PreGameRadiantThink()
 	local viper = GetBot();
 	if DotaTime()<-10 then
-		Move1();
+		MoveToRadiantSecretShop();
 	elseif DotaTime()<0 then
-		Move2();
+		MoveToRadiantBountyRuneTop();
 	elseif DotaTime()>=0 and DotaTime()<=1 then
 		viper:Action_PickUpRune(viper);
 	else
