@@ -8,11 +8,11 @@ function Think()
 	if ( GetTeam() == TEAM_RADIANT )
 	then
 		print( "selecting radiant" );
-		SelectHero( 0, "npc_dota_hero_antimage" );
-		SelectHero( 1, "npc_dota_hero_lina" );
+		SelectHero( 0, "npc_dota_hero_spirit_breaker" );
+		SelectHero( 1, "npc_dota_hero_bristleback" );
 		SelectHero( 2, "npc_dota_hero_enchantress" );
-		SelectHero( 3, "npc_dota_hero_bloodseeker" );
-		SelectHero( 4, "npc_dota_hero_crystal_maiden" );
+		SelectHero( 3, "npc_dota_hero_viper" );
+		SelectHero( 4, "npc_dota_hero_shadow_shaman" );
 	elseif ( GetTeam() == TEAM_DIRE )
 	then
 		print( "selecting dire" );
